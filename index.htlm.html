@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propuesta de Identidad de Marca — Consultoría PyME</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Cinzel para nombres de marca refinados + Plus Jakarta Sans para lectura limpia -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0b0f17;
+      color: #f1f5f9;
+    }
+    .brand-title {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.15em;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between selection:bg-amber-500/30 selection:text-amber-200">
+
+  <!-- Header con selector de paletas -->
+  <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 shadow-lg px-4 py-3 sm:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="text-[10px] font-bold tracking-widest text-emerald-400 uppercase">Pitch Deck — Identidad Visual</span>
+        <h1 class="text-lg sm:text-xl font-bold text-white tracking-tight">Propuestas de Marca para Consultoría PyME</h1>
+      </div>
+
+      <!-- Selector de Paletas Cromáticas -->
+      <div class="flex flex-wrap items-center gap-2 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+        <span class="text-[10px] font-bold text-slate-400 px-2 uppercase tracking-wider">Paleta:</span>
+        <button onclick="setPalette('palette1')" id="pal-btn-palette1" class="palette-btn text-xs px-3 py-1.5 rounded-lg border border-slate-600 bg-slate-800 text-white font-medium flex items-center gap-1.5 transition hover:border-slate-400">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#8DA396] border border-white/40"></span>
+          <span>1. Salvia & Beige</span>
+        </button>
+        <button onclick="setPalette('palette2')" id="pal-btn-palette2" class="palette-btn text-xs px-3 py-1.5 rounded-lg border border-transparent text-slate-400 hover:text-white font-medium flex items-center gap-1.5 transition">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#3B6978] border border-white/40"></span>
+          <span>2. Azules & Beige</span>
+        </button>
+        <button onclick="setPalette('palette3')" id="pal-btn-palette3" class="palette-btn text-xs px-3 py-1.5 rounded-lg border border-transparent text-slate-400 hover:text-white font-medium flex items-center gap-1.5 transition">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#E08E79] border border-white/40"></span>
+          <span>3. Cálida & Humana</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="max-w-7xl mx-auto px-4 py-8 sm:px-8 w-full flex-grow">
+    
+    <!-- Muestrario de Paleta Activa -->
+    <div id="palette-banner" class="mb-6 p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-xl transition-all duration-300">
+      <!-- Inyectado dinámicamente -->
+    </div>
+
+    <!-- Comparativa Directa entre Paleta 1 y Paleta 3 para aclarar dudas -->
+    <div class="mb-10 p-5 rounded-2xl bg-slate-900/50 border border-slate-800/80">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-amber-400">Diferencias clave: Paleta 1 vs. Paleta 3</h3>
+        <span class="text-[10px] text-slate-400">Comparativa directa</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Paleta 1 Resumen -->
+        <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
+          <div>
+            <div class="text-xs font-bold text-white">Opción 1: Salvia & Beige</div>
+            <p class="text-[11px] text-slate-400 mt-0.5">Enfoque más sobrio, frío y orgánico (Verde Salvia + Azul Pizarra + Beige)</p>
+          </div>
+          <div class="flex gap-1.5 ml-3 flex-shrink-0">
+            <span class="w-5 h-5 rounded-md border border-white/20" style="background-color: #4A5868" title="Azul Pizarra"></span>
+            <span class="w-5 h-5 rounded-md border border-white/20" style="background-color: #8DA396" title="Verde Salvia"></span>
+            <span class="w-5 h-5 rounded-md border border-white/20" style="background-color: #E5D8C5" title="Beige"></span>
+          </div>
+        </div>
+        <!-- Paleta 3 Resumen -->
+        <div class="p-3.5 rounded-xl bg-slate-950/80 border border-amber-500/30 flex items-center justify-between">
+          <div>
+            <div class="text-xs font-bold text-amber-200">Opción 3: Cálida & Humana (Experta)</div>
+            <p class="text-[11px] text-slate-400 mt-0.5">Introduce <span class="text-orange-300 font-semibold">Terracota / Salmón</span> para dar contraste humano e impacto visual</p>
+          </div>
+          <div class="flex gap-1.5 ml-3 flex-shrink-0">
+            <span class="w-5 h-5 rounded-md border border-white/20" style="background-color: #334155" title="Azul Noche"></span>
+            <span class="w-5 h-5 rounded-md border border-white/20" style="background-color: #6B9080" title="Verde Eucalipto"></span>
+            <span class="w-5 h-5 rounded-md border border-white/20" style="background-color: #E08E79" title="Terracota Cálido"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegador de Marcas -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-8">
+      <button onclick="selectBrand('nodara')" id="brand-tab-nodara" class="brand-tab text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-xl border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 transition">NODARA</button>
+      <button onclick="selectBrand('nexora')" id="brand-tab-nexora" class="brand-tab text-xs sm:text-sm font-medium px-4 py-2.5 rounded-xl border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition">NEXORA</button>
+      <button onclick="selectBrand('veltra')" id="brand-tab-veltra" class="brand-tab text-xs sm:text-sm font-medium px-4 py-2.5 rounded-xl border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition">VELTRA</button>
+      <button onclick="selectBrand('dativa')" id="brand-tab-dativa" class="brand-tab text-xs sm:text-sm font-medium px-4 py-2.5 rounded-xl border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition">DATIVA</button>
+      <button onclick="selectBrand('sintra')" id="brand-tab-sintra" class="brand-tab text-xs sm:text-sm font-medium px-4 py-2.5 rounded-xl border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition">SINTRA</button>
+      <button onclick="selectBrand('vertika')" id="brand-tab-vertika" class="brand-tab text-xs sm:text-sm font-medium px-4 py-2.5 rounded-xl border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition">VÉRTIKA</button>
+    </div>
+
+    <!-- Vista de la Marca Seleccionada -->
+    <div id="brand-display" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Inyectado por JS -->
+    </div>
+
+  </main>
+
+  <footer class="bg-slate-900 border-t border-slate-800 py-6 px-4 text-center text-xs text-slate-400">
+    <p>© Consultoría Estratégica PyME — Selección de Identidad Visual y Marca</p>
+  </footer>
+
+  <script>
+    // Paletas sobrias, sofisticadas y contrastadas
+    const colorPalettes = {
+      palette1: {
+        id: "palette1",
+        label: "Opción 1: Verde Salvia & Beige",
+        desc: "Equilibrio orgánico que transmite serenidad, cercanía y sostenibilidad operativa.",
+        c1: "#4A5868", // Azul Pizarra
+        c2: "#8DA396", // Verde Salvia
+        c3: "#E5D8C5", // Beige
+        c4: "#2C394B", // Azul Marino
+        colors: [
+          { name: "Azul Pizarra", hex: "#4A5868" },
+          { name: "Verde Salvia", hex: "#8DA396" },
+          { name: "Beige Cálido", hex: "#E5D8C5" },
+          { name: "Azul Marino", hex: "#2C394B" }
+        ]
+      },
+      palette2: {
+        id: "palette2",
+        label: "Opción 2: Azules & Beige",
+        desc: "Enfoque institucional, sobrio y de alta confianza con calidez en los detalles.",
+        c1: "#2B3A4E", // Azul Marino Imperial
+        c2: "#3B6978", // Azul Petróleo Cálido
+        c3: "#EAD7B5", // Beige Dorado
+        c4: "#152238", // Azul Profundo
+        colors: [
+          { name: "Azul Marino", hex: "#2B3A4E" },
+          { name: "Azul Petróleo Cálido", hex: "#3B6978" },
+          { name: "Beige Dorado", hex: "#EAD7B5" },
+          { name: "Azul Profundo", hex: "#152238" }
+        ]
+      },
+      palette3: {
+        id: "palette3",
+        label: "Opción 3: Propuesta Experta (Cálida & Humana)",
+        desc: "Estructura corporativa en azul noche con calidez humana en tonos eucalipto, lino y terracota suave.",
+        c1: "#334155", // Azul Noche
+        c2: "#6B9080", // Verde Eucalipto
+        c3: "#F3EDE0", // Beige Lino
+        c4: "#E08E79", // Terracota Cálido
+        colors: [
+          { name: "Azul Noche", hex: "#334155" },
+          { name: "Verde Eucalipto", hex: "#6B9080" },
+          { name: "Beige Lino", hex: "#F3EDE0" },
+          { name: "Terracota Cálido", hex: "#E08E79" }
+        ]
+      }
+    };
+
+    const brands = {
+      nodara: {
+        id: "nodara",
+        name: "NODARA",
+        sub: "ESTRATEGIA · DATOS · TRANSFORMACIÓN",
+        tagline: "El punto donde convergen la estrategia y los datos.",
+        desc: "Nodara nace del concepto de 'nodo': la intersección donde se conectan la visión estratégica, el análisis de datos y la transformación de procesos para llevar a la PyME al siguiente nivel de madurez.",
+        pymeFit: "Excelente para empresas familiares o PyMEs en consolidación que tienen datos pero no saben cómo traducirlos en decisiones estratégicas.",
+        applications: [
+          "Dashboard Ejecutivo de Control y Métricas",
+          "Informes Anuales de Sostenibilidad y Crecimiento",
+          "Propuestas de Consultoría en Transformación Digital"
+        ],
+        svg: function(pal) {
+          return `
+            <svg viewBox="0 0 200 200" class="w-32 h-32 sm:w-40 sm:h-40" xmlns="http://www.w3.org/2000/svg">
+              <!-- Isotipo NODARA: Bucle continuo 'N' orgánico y convergente de precisión -->
+              <defs>
+                <linearGradient id="nodaraGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="${pal.c2}" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="${pal.c1}" stop-opacity="0.9" />
+                </linearGradient>
+                <linearGradient id="nodaraGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="${pal.c3}" stop-opacity="0.95" />
+                  <stop offset="100%" stop-color="${pal.c2}" stop-opacity="0.8" />
+                </linearGradient>
+              </defs>
+              <!-- Círculo guía sutil -->
+              <circle cx="100" cy="100" r="68" stroke="${pal.c2}" stroke-width="1" fill="none" opacity="0.2" stroke-dasharray="3 3"/>
+              
+              <!-- Trazo fluído principal en forma de N entrelazada -->
+              <path d="M 65 140 C 65 80, 85 60, 100 60 C 115 60, 135 80, 135 140" 
+                stroke="url(#nodaraGrad1)" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M 135 60 C 135 120, 115 140, 100 140 C 85 140, 65 120, 65 60" 
+                stroke="url(#nodaraGrad2)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                
+              <!-- Nodos de convergencia y síntesis -->
+              <circle cx="100" cy="100" r="6" fill="${pal.c3}" stroke="${pal.c1}" stroke-width="1.5"/>
+              <circle cx="100" cy="60" r="3.5" fill="${pal.c2}"/>
+              <circle cx="100" cy="140" r="3.5" fill="${pal.c2}"/>
+            </svg>
+          `;
+        }
+      },
+      nexora: {
+        id: "nexora",
+        name: "NEXORA",
+        sub: "FINANZAS · PROCESOS · TECNOLOGÍA",
+        tagline: "Conecta lo que importa.",
+        desc: "Simboliza el nexo que unifica las tres áreas clave de la empresa. Su diseño fluido evita ángulos agresivos para transmitir accesibilidad, cercanía y equilibrio.",
+        pymeFit: "Ideal para el dueño de PyME que siente que sus departamentos operan como islas desiertas e incomunicadas.",
+        applications: [
+          "Firma Digital y Plantillas de Correo Corporativo",
+          "Herramientas de Auditoría e Integración Operativa",
+          "Sitio Web Institucional y Landing Page de Diagnóstico"
+        ],
+        svg: function(pal) {
+          return `
+            <svg viewBox="0 0 200 200" class="w-32 h-32 sm:w-40 sm:h-40" xmlns="http://www.w3.org/2000/svg">
+              <!-- Un 'Nexo' sofisticado de doble cinta entrelazada -->
+              <path d="M 55 145 C 55 90, 100 65, 120 65 C 145 65, 150 85, 145 105 C 140 125, 110 135, 80 135 C 50 135, 45 110, 55 85 C 65 60, 110 55, 145 55" 
+                stroke="${pal.c2}" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M 65 145 C 80 145, 145 110, 145 55" 
+                stroke="${pal.c3}" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+          `;
+        }
+      },
+      veltra: {
+        id: "veltra",
+        name: "VELTRA",
+        sub: "ANÁLISIS · PROCESOS · TECNOLOGÍA",
+        tagline: "Impulso real para tu PyME.",
+        desc: "Combina la idea de 'velocidad' y 'trayectoria'. Su isotipo con trazos paralelos estilizados transmite crecimiento ordenado sin perder sofisticación.",
+        pymeFit: "Perfecto para empresas dinámicas que necesitan acelerar la ejecución de sus proyectos y ganar competitividad.",
+        applications: [
+          "Pitch Decks para Inversores o Bancos",
+          "Manuales de Procedimientos y Eficiencia Operativa",
+          "Kits de Acreditación y Material para Talleres"
+        ],
+        svg: function(pal) {
+          return `
+            <svg viewBox="0 0 200 200" class="w-32 h-32 sm:w-40 sm:h-40" xmlns="http://www.w3.org/2000/svg">
+              <!-- 'V' geométrica refinada con trazos desfasados -->
+              <path d="M 50 65 L 95 145 L 115 145 L 70 65 Z" fill="${pal.c2}" opacity="0.95"/>
+              <path d="M 90 65 L 135 145 L 150 145 L 105 65 Z" fill="${pal.c3}"/>
+              <line x1="115" y1="65" x2="160" y2="145" stroke="${pal.c1}" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          `;
+        }
+      },
+      dativa: {
+        id: "dativa",
+        name: "DATIVA",
+        sub: "DATOS · PROCESOS · FINANZAS",
+        tagline: "Transformamos datos en decisiones.",
+        desc: "Proviene de la raíz 'dato' e 'información generativa'. Representa la capacidad de organizar información dispersa en un arco sólido y estructurado.",
+        pymeFit: "Ideal para empresarios que sufren por falta de visibilidad en sus números y necesitan ordenar su contabilidad y flujo de caja.",
+        applications: [
+          "Plantillas de PowerBI y Excel Financiero",
+          "Guías Descargables sobre Control de Costos",
+          "Informes Ejecutivos de Salud Financiera"
+        ],
+        svg: function(pal) {
+          return `
+            <svg viewBox="0 0 200 200" class="w-32 h-32 sm:w-40 sm:h-40" xmlns="http://www.w3.org/2000/svg">
+              <!-- Isotipo de la 'D' con arquitectura modular fina -->
+              <path d="M 60 55 L 100 55 C 135 55, 150 75, 150 100 C 150 125, 135 145, 100 145 L 60 145 Z" 
+                stroke="${pal.c3}" stroke-width="3" fill="none"/>
+              <circle cx="80" cy="80" r="4" fill="${pal.c2}"/>
+              <circle cx="80" cy="100" r="4" fill="${pal.c2}"/>
+              <circle cx="80" cy="120" r="4" fill="${pal.c2}"/>
+              <circle cx="100" cy="100" r="5" fill="${pal.c3}"/>
+            </svg>
+          `;
+        }
+      },
+      sintra: {
+        id: "sintra",
+        name: "SINTRA",
+        sub: "INFORMACIÓN · PROCESOS · RESULTADOS",
+        tagline: "Procesos más simples, decisiones más inteligentes.",
+        desc: "Evoca 'sincronía' y 'síntesis'. Su nuevo isotipo representa un emblema geométrico de dos arcos continuos que forman una 'S' orgánica, simbolizando la armonía operativa y el flujo continuo de trabajo.",
+        pymeFit: "Atrae a pymes abrumadas por la 'apagada de incendios' diaria que buscan automatizar y ordenar sus procesos operativos.",
+        applications: [
+          "Diagramas de Flujo y Mapas de Procesos (BPMN)",
+          "Propuestas de Asesoría Continua y Retainers",
+          "Planes de Gestión del Cambio Organizacional"
+        ],
+        svg: function(pal) {
+          return `
+            <svg viewBox="0 0 200 200" class="w-32 h-32 sm:w-40 sm:h-40" xmlns="http://www.w3.org/2000/svg">
+              <!-- Nuevo Isotipo SINTRA: 'S' Armónica de Doble Arco Sincronizado -->
+              <defs>
+                <linearGradient id="sintraGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="${pal.c2}" />
+                  <stop offset="100%" stop-color="${pal.c3}" />
+                </linearGradient>
+                <linearGradient id="sintraGrad2" x1="100%" y1="100%" x2="0%" y2="0%">
+                  <stop offset="0%" stop-color="${pal.c1}" />
+                  <stop offset="100%" stop-color="${pal.c2}" />
+                </linearGradient>
+              </defs>
+              
+              <!-- Anillo exterior decorativo muy sutil -->
+              <circle cx="100" cy="100" r="60" stroke="${pal.c3}" stroke-width="0.8" fill="none" opacity="0.25" stroke-dasharray="4 2"/>
+              
+              <!-- Trazo superior de la 'S' -->
+              <path d="M 125 65 C 100 45, 65 65, 65 95 C 65 120, 100 115, 100 135" 
+                stroke="url(#sintraGrad1)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                
+              <!-- Trazo inferior entrelazado de la 'S' -->
+              <path d="M 100 65 C 100 85, 135 80, 135 105 C 135 135, 100 155, 75 135" 
+                stroke="url(#sintraGrad2)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                
+              <!-- Puntos de sincronización y balance -->
+              <circle cx="125" cy="65" r="3.5" fill="${pal.c3}"/>
+              <circle cx="75" cy="135" r="3.5" fill="${pal.c2}"/>
+            </svg>
+          `;
+        }
+      },
+      vertika: {
+        id: "vertika",
+        name: "VÉRTIKA",
+        sub: "ESTRATEGIA & GESTIÓN",
+        tagline: "Elevamos la gestión de tu empresa.",
+        desc: "Representa la perspectiva elevada y la dirección vertical hacia el crecimiento. Su construcción triangular refinada transmite solidez y rigor.",
+        pymeFit: "Orientada a medianas empresas o PyMEs consolidadas que buscan profesionalizar su directorio o estructurar la empresa para sucesión.",
+        applications: [
+          "Carpetas de Presentación para Directorio",
+          "Informes Ejecutivos de Valoración de Empresa",
+          "Certificados de Gobernanza y Protocolo Familiar"
+        ],
+        svg: function(pal) {
+          return `
+            <svg viewBox="0 0 200 200" class="w-32 h-32 sm:w-40 sm:h-40" xmlns="http://www.w3.org/2000/svg">
+              <!-- Triángulo geométrico invertido de precisión -->
+              <polygon points="100,155 45,60 155,60" stroke="${pal.c3}" stroke-width="2.5" fill="none"/>
+              <polygon points="100,135 60,70 140,70" stroke="${pal.c2}" stroke-width="1.5" fill="none" opacity="0.8"/>
+              <circle cx="100" cy="95" r="4" fill="${pal.c3}"/>
+            </svg>
+          `;
+        }
+      }
+    };
+
+    let currentPalette = "palette1";
+    let currentBrand = "nodara";
+
+    function setPalette(palKey) {
+      currentPalette = palKey;
+      
+      // Actualizar estilo botones selector
+      Object.keys(colorPalettes).forEach(k => {
+        const btn = document.getElementById(`pal-btn-${k}`);
+        if(k === palKey) {
+          btn.className = "palette-btn text-xs px-3 py-1.5 rounded-lg border border-slate-500 bg-slate-800 text-white font-medium flex items-center gap-1.5 transition";
+        } else {
+          btn.className = "palette-btn text-xs px-3 py-1.5 rounded-lg border border-transparent text-slate-400 hover:text-white font-medium flex items-center gap-1.5 transition";
+        }
+      });
+
+      renderPaletteBanner();
+      renderBrandDisplay();
+    }
+
+    function selectBrand(brandKey) {
+      currentBrand = brandKey;
+
+      // Actualizar pestañas
+      Object.keys(brands).forEach(k => {
+        const tab = document.getElementById(`brand-tab-${k}`);
+        if(k === brandKey) {
+          tab.className = "brand-tab text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-xl border border-emerald-500/50 bg-emerald-950/40 text-emerald-300 transition shadow-md";
+        } else {
+          tab.className = "brand-tab text-xs sm:text-sm font-medium px-4 py-2.5 rounded-xl border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition";
+        }
+      });
+
+      renderBrandDisplay();
+    }
+
+    function renderPaletteBanner() {
+      const pal = colorPalettes[currentPalette];
+      const banner = document.getElementById('palette-banner');
+
+      let colorsHtml = pal.colors.map(c => `
+        <div class="flex items-center gap-3 bg-slate-950 p-3 rounded-xl border border-slate-800">
+          <span class="w-7 h-7 rounded-lg border border-white/20 shadow-inner flex-shrink-0" style="background-color: ${c.hex}"></span>
+          <div class="overflow-hidden">
+            <div class="text-xs font-semibold text-white truncate">${c.name}</div>
+            <div class="text-[10px] font-mono text-slate-400">${c.hex}</div>
+          </div>
+        </div>
+      `).join('');
+
+      banner.innerHTML = `
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+          <div>
+            <div class="text-xs font-bold text-amber-400 uppercase tracking-widest">${pal.label}</div>
+            <p class="text-xs text-slate-300 mt-0.5">${pal.desc}</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          ${colorsHtml}
+        </div>
+      `;
+    }
+
+    function renderBrandDisplay() {
+      const b = brands[currentBrand];
+      const pal = colorPalettes[currentPalette];
+      const container = document.getElementById('brand-display');
+
+      container.innerHTML = `
+        <!-- Columna Izquierda: Isotipo y Logotipo en fondo oscuro de alto contraste -->
+        <div class="lg:col-span-6 bg-gradient-to-b from-slate-950 to-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-12 flex flex-col items-center justify-center text-center shadow-2xl relative overflow-hidden group">
+          <div class="absolute inset-0 bg-radial from-slate-800/20 to-transparent pointer-events-none"></div>
+
+          <!-- Contenedor del Isotipo -->
+          <div class="mb-6 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-inner flex items-center justify-center">
+            ${b.svg(pal)}
+          </div>
+
+          <!-- Logotipo Refinado -->
+          <h2 class="brand-title text-3xl sm:text-4xl font-bold tracking-widest text-white mb-2">${b.name}</h2>
+          <p class="text-xs font-semibold tracking-widest uppercase text-slate-300 max-w-xs mb-6" style="color: ${pal.c3}">${b.sub}</p>
+
+          <!-- Tagline -->
+          <div class="px-4 py-2 rounded-full border border-slate-800 bg-slate-900/90 text-slate-200 text-xs sm:text-sm font-medium">
+            "${b.tagline}"
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Estrategia y Aplicaciones para PyME -->
+        <div class="lg:col-span-6 space-y-6">
+          <!-- Fundamento -->
+          <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-lg">
+            <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest mb-2">Fundamento y Concepto</h3>
+            <p class="text-sm text-slate-200 leading-relaxed">${b.desc}</p>
+          </div>
+
+          <!-- Afinidad con PyME -->
+          <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-lg">
+            <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2">Afinidad con el Empresario PyME</h3>
+            <p class="text-sm text-slate-200 leading-relaxed">${b.pymeFit}</p>
+          </div>
+
+          <!-- Aplicaciones Clave -->
+          <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-lg">
+            <h3 class="text-xs font-bold text-sky-400 uppercase tracking-widest mb-3">Aplicaciones Clave de Marca</h3>
+            <ul class="space-y-2">
+              ${b.applications.map(app => `
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>
+                  <span>${app}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        </div>
+      `;
+    }
+
+    // Inicialización al cargar página
+    window.onload = function() {
+      setPalette('palette1');
+      selectBrand('nodara');
+    };
+  </script>
+</body>
+</html>
